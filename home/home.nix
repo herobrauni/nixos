@@ -51,6 +51,9 @@
       locales = [ "en_US.UTF-8/UTF-8" ];
     };
   };
+  home.sessionVariables = {
+    LANG = "en_US.UTF-8";
+  };
 
   # TODO: Set your username
   home = {
