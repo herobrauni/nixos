@@ -7,12 +7,14 @@
   config,
   pkgs,
   ...
-}: {
+}: 
+{
   # You can import other home-manager modules here
   imports = [
     ./apps/firefox.nix
+    ./apps/foot.nix
+#    ./apps/alacritty.nix
   ];
-
   nixpkgs = {
     # You can add overlays here
     overlays = [

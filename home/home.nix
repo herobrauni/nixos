@@ -45,6 +45,13 @@
     };
   };
 
+  i18n = {
+    glibcLocales = pkgs.glibcLocales.override {
+      allLocales = false;
+      locales = [ "en_US.UTF-8/UTF-8" ];
+    };
+  };
+
   # TODO: Set your username
   home = {
     username = "brauni";
