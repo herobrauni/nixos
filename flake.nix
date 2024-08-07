@@ -124,6 +124,17 @@
             inherit inputs outputs;
           };
         };
+        # envy laptop
+        "brauni@envy" = lib.homeManagerConfiguration {
+          modules = [ 
+	    ./home/envy.nix 
+	    ./home/home.nix 
+	  ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
       };
     };
 }
