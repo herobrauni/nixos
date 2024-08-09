@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, outputs, ... }:
+{ config, pkgs, inputs, outputs, lib, ... }:
 
 {
   networking.hostName = "envy"; # Define your hostname.
@@ -7,7 +7,7 @@
       # Include the results of the hardware scan.
       inputs.home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
-      ./disko-config.nix
+      ./disko.nix
       ../common
     ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

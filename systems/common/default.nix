@@ -9,7 +9,6 @@ in {
   users.mutableUsers = false;
   users.users.brauni = {
     isNormalUser = true;
-    shell = pkgs.zsh;
     extraGroups = ifTheyExist [
       "audio"
       "docker"

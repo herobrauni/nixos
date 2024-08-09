@@ -1,9 +1,13 @@
-{
+{ inputs
+, config
+, ...
+}:{
+  imports = [ inputs.disko.nixosModules.disko ];
   disko.devices = {
     disk = {
       main = {
         type = "disk";
-        device = "/dev/vdb";
+        device = "/dev/nvme0n1p2";
         content = {
           type = "gpt";
           partitions = {
@@ -13,7 +17,7 @@
               content = {
                 type = "filesystem";
                 format = "vfat";
-                mountpoint = "/efi";
+                mountpoint = "/boot";
                 mountOptions = [
                   "defaults" "umask=0077"
                 ];
@@ -44,23 +48,27 @@
                       mountpoint = "/nix";
                       mountOptions = [ "compress=zstd" "noatime" ];
                     };
+                    "/nixos/@config" = {
+                      mountpoint = "/etc/nixos";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
                     "/nixos/@swap" = {
                       mountpoint = "/swap";
                       swap.swapfile.size = "16G";
                     };
-                    "/nixos/@steam" = {
+                    "/shared/@steam" = {
                       mountpoint = "/steam";
                       mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/shared/@secureboot" = {
-                      mountpoint = "/etc/secureboot";
+                      mountpoint = "/etc/secureboot/keys";
                       mountOptions = [ "compress=zstd" "noatime" ];
                     };
-                    "/nixos/@videos" = {
+                    "/shared/@videos" = {
                       mountpoint = "/videos";
                       mountOptions = [ "compress=zstd" "noatime" ];
                     };
-                    "/nixos/@ssh" = {
+                    "/shared/@ssh" = {
                       mountpoint = "/home/brauni/.ssh";
                       mountOptions = [ "compress=zstd" "noatime" ];
                     };
