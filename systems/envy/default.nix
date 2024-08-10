@@ -6,6 +6,8 @@
     [
       # Include the results of the hardware scan.
       inputs.home-manager.nixosModules.home-manager
+      inputs.lanzaboote.nixosModules.lanzaboote
+      inputs.nixos-cosmic.nixosModules.default
       ./hardware-configuration.nix
       ./disko.nix
       ../common
@@ -16,7 +18,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/nixconfig";
+    flake = "/etc/nixos";
   };
 
   # Bootloader.
@@ -51,8 +53,15 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome .enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome .enable = true;
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
+
+  nix.settings = {
+    substituters = [ "https://cosmic.cachix.org/" ];
+    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+  };
 
   # Configure console keymap
   console.keyMap = "us-acentos";

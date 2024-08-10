@@ -182,6 +182,10 @@ One button */
     flex-direction: row-reverse;
   }
 }
+
+#sidebar-header {
+  display: none !important;
+}
         '';
       };
     };

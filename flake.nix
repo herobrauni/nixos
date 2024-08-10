@@ -28,7 +28,6 @@
     , nixpkgs
     , home-manager
     , systems
-    , lanzaboote
     , ...
     } @ inputs:
     let
@@ -56,7 +55,6 @@
         envy = nixpkgs.lib.nixosSystem {
           modules = [
             ./systems/envy
-            lanzaboote.nixosModules.lanzaboote
           ];
           specialArgs = {
             inherit inputs outputs;
