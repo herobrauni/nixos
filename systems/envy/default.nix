@@ -13,7 +13,7 @@
       ../common
     ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  fonts.fontconfig.enable = true;
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -21,15 +21,23 @@
     flake = "/etc/nixos";
   };
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.consoleLogLevel = 0;
-
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/etc/secureboot";
+  # Bootloader
+  boot = {
+    loader = {
+      systemd-boot.enable = lib.mkForce false;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+    consoleLogLevel = 0;
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+    };
+    initrd.systemd.enable = true;
+    plymouth.enable = true;
+    kernelParams = [ "quiet" ];
+    plymouth.theme = "proxzima";
+    plymouth.themePackages = [ pkgs.plymouth-proxzima-theme ];
   };
 
   # Enable networking
@@ -86,6 +94,7 @@
     yubikey-personalization
     ripgrep
     pavucontrol
+    rsync
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?

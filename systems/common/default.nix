@@ -1,14 +1,17 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
+{ pkgs
+, config
+, lib
+, ...
+}:
+let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-in {
+in
+{
   users.mutableUsers = false;
   users.users.brauni = {
     isNormalUser = true;
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = true;
     extraGroups = ifTheyExist [
       "audio"
       "docker"
@@ -23,9 +26,9 @@ in {
     ];
 
     initialHashedPassword = "$y$j9T$d7EVWIrLInhGgEObbWa0A1$jomM5R056rhtJOOBH5vxC6GRnPMdqCb23ZKNWvqv1L9";
-    packages = [pkgs.home-manager];
+    packages = [ pkgs.home-manager ];
   };
-    # Configure keymap in X11
+  # Configure keymap in X11
   services.xserver = {
     enable = true;
     xkb.layout = "us";

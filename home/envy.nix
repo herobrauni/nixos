@@ -11,9 +11,17 @@
   # You can import other home-manager modules here
   imports = [
     ./apps/firefox.nix
-    ./apps/foot.nix
-    # ./apps/alacritty.nix
+    ./apps/alacritty.nix
+    ./apps/zsh.nix
+    ./apps/font.nix
   ];
+  home.packages = with pkgs; [
+    shipwright
+    _2ship2harkinian
+    ferdium
+  ];
+
+  dconf.settings."org/gnome/desktop/wm/preferences".button-layout = "minimize,maximize,close";
 
   programs = {
     git = {
