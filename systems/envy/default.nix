@@ -71,6 +71,7 @@
   services.pipewire.enable = true;
   services.pipewire.pulse.enable = true;
   services.tailscale.enable = true;
+  services.tailscale.useRoutingFeatures = "both";
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
@@ -111,6 +112,7 @@
     podman-compose
     # freerdp
     # freerdp3
+    pulseaudio
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?

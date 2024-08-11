@@ -19,6 +19,8 @@
     shipwright
     _2ship2harkinian
     ferdium
+    vlc
+    rbw
     # freerdp
     freerdp3
     # remmina
