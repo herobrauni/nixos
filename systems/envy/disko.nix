@@ -1,7 +1,7 @@
 { inputs
 , config
 , ...
-}:{
+}: {
   imports = [ inputs.disko.nixosModules.disko ];
   disko.devices = {
     disk = {
@@ -19,7 +19,8 @@
                 format = "vfat";
                 mountpoint = "/boot";
                 mountOptions = [
-                  "defaults" "umask=0077"
+                  "defaults"
+                  "umask=0077"
                 ];
               };
             };
@@ -30,7 +31,7 @@
                 name = "crypted";
                 settings = {
                   allowDiscards = true;
-                  bypassWorkqueues = true;    
+                  bypassWorkqueues = true;
                 };
                 content = {
                   type = "btrfs";
@@ -58,6 +59,10 @@
                     };
                     "/shared/@steam" = {
                       mountpoint = "/steam";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
+                    "/shared/@windows" = {
+                      mountpoint = "/windows";
                       mountOptions = [ "compress=zstd" "noatime" ];
                     };
                     "/shared/@secureboot" = {

@@ -39,6 +39,7 @@
     plymouth.theme = "proxzima";
     plymouth.themePackages = [ pkgs.plymouth-proxzima-theme ];
   };
+  systemd.sleep.extraConfig = "HibernateMode=shutdown";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -62,9 +63,19 @@
   };
 
   # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome .enable = true;
+  services.xserver.desktopManager.gnome .enable = true;
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
+  hardware.pulseaudio.enable = false;
+  hardware.bluetooth.enable = true;
+  services.pipewire.enable = true;
+  services.pipewire.pulse.enable = true;
+  services.tailscale.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
+  };
 
   nix.settings = {
     substituters = [ "https://cosmic.cachix.org/" ];
@@ -81,8 +92,10 @@
     enable = true;
     enableSSHSupport = true;
   };
-
+  programs.steam.enable = true;
   environment.systemPackages = with pkgs; [
+    dialog
+    # libnotify
     fastfetch
     btop
     micro
@@ -95,6 +108,9 @@
     ripgrep
     pavucontrol
     rsync
+    podman-compose
+    # freerdp
+    # freerdp3
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?

@@ -19,9 +19,33 @@
     shipwright
     _2ship2harkinian
     ferdium
+    # freerdp
+    freerdp3
+    # remmina
   ];
 
+  programs.starship.settings = {
+    battery = {
+      display = [
+        {
+          style = "bold red";
+          threshold = 10;
+        }
+        {
+          style = "bold yellow";
+          threshold = 30;
+        }
+        {
+          style = "bold green";
+          threshold = 100;
+        }
+      ];
+    };
+  };
+
   dconf.settings."org/gnome/desktop/wm/preferences".button-layout = "minimize,maximize,close";
+
+  services.nextcloud-client.enable = true;
 
   programs = {
     git = {
