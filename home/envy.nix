@@ -14,6 +14,7 @@
     ./apps/alacritty.nix
     ./apps/zsh.nix
     ./apps/font.nix
+    ./apps/kube.nix
   ];
   home.packages = with pkgs; [
     shipwright
