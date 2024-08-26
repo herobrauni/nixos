@@ -47,6 +47,8 @@
     nh # Nice wrapper for NixOS and HM
 
     ltex-ls # Spell checking LSP
+
+    telegram-desktop
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
