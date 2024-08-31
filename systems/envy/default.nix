@@ -47,6 +47,14 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+
+  # Configure keymap in X11
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us";
+    xkb.variant = "intl";
+  };
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 

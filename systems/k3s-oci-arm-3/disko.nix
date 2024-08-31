@@ -1,4 +1,8 @@
-{
+{ inputs
+, config
+, ...
+}: {
+  imports = [ inputs.disko.nixosModules.disko ];
   disko.devices = {
     disk = {
       main = {
@@ -14,6 +18,10 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [
+                  "defaults"
+                  "umask=0077"
+                ];
               };
             };
             root = {

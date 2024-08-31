@@ -5,10 +5,14 @@
 , pkgs
 , ...
 }: {
-  imports = [
-    ../nixos/configuration.nix
-    ./disk-config.nix
-    ./hardware-configuration.nix
-    ./oracle-cloud.nix
-  ];
+  networking.hostName = "k3s-oci-arm-3"; # Define your hostname.
+
+  imports =
+    [
+      # Include the results of the hardware scan.
+      inputs.home-manager.nixosModules.home-manager
+      ./disko.nix
+      ../common/oci.nix
+      ../common/default.nix
+    ];
 }
