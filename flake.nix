@@ -64,32 +64,41 @@
             inherit inputs outputs;
           };
         };
-        # k3s-oci-arm-3
-        k3s-oci-arm-3 = nixpkgs.lib.nixosSystem {
+        # k3s-oci-arm
+        k3s-oci-arm-2 = nixpkgs.lib.nixosSystem {
           modules = [
-            ./systems/k3s-oci-arm-3
+            ./systems/k3s-oci-arm-2
           ];
           specialArgs = {
             inherit inputs outputs;
           };
         };
       };
-
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        # envy laptop
-        "brauni@envy" = lib.homeManagerConfiguration {
-          modules = [
-            ./home/envy.nix
-            ./home/home.nix
-          ];
-          pkgs = pkgsFor.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
+      k3s-oci-arm-3 = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./systems/k3s-oci-arm-3
+        ];
+        specialArgs = {
+          inherit inputs outputs;
         };
       };
     };
+
+
+  # Standalone home-manager configuration entrypoint
+  # Available through 'home-manager --flake .#your-username@your-hostname'
+  homeConfigurations = {
+    # envy laptop
+    "brauni@envy" = lib.homeManagerConfiguration {
+      modules = [
+        ./home/envy.nix
+        ./home/home.nix
+      ];
+      pkgs = pkgsFor.x86_64-linux;
+      extraSpecialArgs = {
+        inherit inputs outputs;
+      };
+    };
+  };
+};
 }
