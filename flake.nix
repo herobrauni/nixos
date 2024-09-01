@@ -73,13 +73,13 @@
             inherit inputs outputs;
           };
         };
-      };
-      k3s-oci-arm-3 = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./systems/k3s-oci-arm-3
-        ];
-        specialArgs = {
-          inherit inputs outputs;
+        k3s-oci-arm-3 = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./systems/k3s-oci-arm-3
+          ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
         };
       };
     };
