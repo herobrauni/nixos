@@ -4,5 +4,7 @@
     fluxcd
     k9s
     kubernetes-helm
+    lens
+    pv-migrate
   ];
 }

@@ -79,7 +79,7 @@
   services.pipewire.enable = true;
   services.pipewire.pulse.enable = true;
   services.tailscale.enable = true;
-  services.tailscale.useRoutingFeatures = "both";
+  services.tailscale.useRoutingFeatures = "client";
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
@@ -121,6 +121,8 @@
     # freerdp
     # freerdp3
     pulseaudio
+    cifs-utils
+    dig.dnsutils
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
