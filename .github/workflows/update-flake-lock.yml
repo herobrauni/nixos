@@ -1,29 +1,23 @@
+name: "Update flakes"
 on:
+  repository_dispatch:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *" # runs weekly on Sunday at 00:00
-
+    - cron: "38 0 * * *"
 permissions:
-  contents: write
   pull-requests: write
-
+  contents: write
 jobs:
-  lockfile:
+  createPullRequest:
     runs-on: ubuntu-latest
     steps:
-      - uses: navikt/github-app-token-generator@v1
-        id: get-token
-        with:
-          app-id: ${{ vars.APP_ID }}
-          private-key: ${{ secrets.PRIVATE_KEY }}
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/update-flake-lock@main
-        id: update
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
         with:
-          commit-msg: "chore(flake): bump inputs"
-          pr-title: "chore(flake): bump inputs"
-          token: ${{ steps.get-token.outputs.token }}
-      - run: "gh pr merge --auto --merge ${{ steps.update.outputs.pull-request-number }}"
-        env:
-          GH_TOKEN: ${{ github.token }}
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@v23
+        with:
+          pr-labels: | # Labels to be set on the PR
+            merge-queue
