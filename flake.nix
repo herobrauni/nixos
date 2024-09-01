@@ -82,23 +82,22 @@
           };
         };
       };
-    };
 
 
-  # Standalone home-manager configuration entrypoint
-  # Available through 'home-manager --flake .#your-username@your-hostname'
-  homeConfigurations = {
-    # envy laptop
-    "brauni@envy" = lib.homeManagerConfiguration {
-      modules = [
-        ./home/envy.nix
-        ./home/home.nix
-      ];
-      pkgs = pkgsFor.x86_64-linux;
-      extraSpecialArgs = {
-        inherit inputs outputs;
+      # Standalone home-manager configuration entrypoint
+      # Available through 'home-manager --flake .#your-username@your-hostname'
+      homeConfigurations = {
+        # envy laptop
+        "brauni@envy" = lib.homeManagerConfiguration {
+          modules = [
+            ./home/envy.nix
+            ./home/home.nix
+          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
       };
     };
-  };
-};
 }
