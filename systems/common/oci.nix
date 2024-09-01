@@ -90,6 +90,7 @@
     ];
     dates = "02:00";
     randomizedDelaySec = "95min";
+    allowReboot = true;
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?
