@@ -60,7 +60,6 @@
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJmpZL3J2RqRK7ynIgowaZBKzI+EiuCGmwB6l0AxLk1v"
   ];
-  users.users.root.initialHashedPassword = "$y$j9T$d7EVWIrLInhGgEObbWa0A1$jomM5R056rhtJOOBH5vxC6GRnPMdqCb23ZKNWvqv1L9";
   users.users.brauni.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBPFkI1tmXLQ5awKEqqoEUMbCalSqARtODdy8nQ18pKk"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIETmaz2oKUkpoSSeGKQefhFb+PUCEwY9Onh9+q1+hXXt"
@@ -72,7 +71,10 @@
   ];
   services.openssh = {
     enable = true;
-    settings.PasswordAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "prohibit-password";
+    };
   };
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "virtio_scsi" ];
@@ -92,7 +94,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    flake = inputs.self.outPath;
+    flake = "github:herobrauni/nixos";
     flags = [
       "--update-input"
       "nixpkgs"
