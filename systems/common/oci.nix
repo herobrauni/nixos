@@ -111,11 +111,6 @@
   # This will automatically import SSH keys as age keys
   sops.secrets.tskey-auth = { };
 
-  services.openiscsi =
-    {
-      enable = true;
-    };
-
   services.tailscale = {
     enable = false;
     authKeyFile = "/run/secrets/tskey-auth";
