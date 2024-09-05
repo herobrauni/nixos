@@ -15,5 +15,6 @@
       ../common/oci.nix
       ../common/default.nix
       ../common/sops.nix
+      ../common/k3s-agent.nix
     ];
 }
