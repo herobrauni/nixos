@@ -16,5 +16,11 @@
     extraFlags = ''
       --vpn-auth-file /run/secrets/k3s-vpn-auth-file
     '';
+    package = pkgs.k3s.overrideAttrs (oldAttrs: {
+      installPhase = lib.replaceStrings
+        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps)) ]
+        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale pkgs.openiscsi ])) ]
+        oldAttrs.installPhase;
+    });
   };
 }
