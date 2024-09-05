@@ -106,6 +106,11 @@
     allowReboot = true;
   };
 
+  imports = [ ];
+  sops.defaultSopsFile = ../../secrets.yaml;
+  # This will automatically import SSH keys as age keys
+  sops.secrets.tskey-auth = { };
+
   services.tailscale = {
     enable = false;
     authKeyFile = "/run/secrets/tskey-auth";
