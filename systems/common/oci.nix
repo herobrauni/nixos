@@ -111,9 +111,20 @@
   # This will automatically import SSH keys as age keys
   sops.secrets.tskey-auth = { };
 
+  services.openiscsi =
+    {
+      enable = true;
+    };
+
   services.tailscale = {
     enable = false;
     authKeyFile = "/run/secrets/tskey-auth";
+    package = pkgs.k3s.overrideAttrs (oldAttrs: {
+      installPhase = lib.replaceStrings
+        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps)) ]
+        [ (lib.makeBinPath (oldAttrs.k3sRuntimeDeps ++ [ pkgs.tailscale pkgs.openiscsi ])) ]
+        oldAttrs.installPhase;
+    });
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?
