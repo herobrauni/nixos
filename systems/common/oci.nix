@@ -107,7 +107,7 @@
   };
 
   services.tailscale = {
-    enable = true;
+    enable = false;
     authKeyFile = "/run/secrets/tskey-auth";
   };
 
