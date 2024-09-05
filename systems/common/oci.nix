@@ -112,7 +112,7 @@
   sops.secrets.tskey-auth = { };
 
   services.tailscale = {
-    enable = false;
+    enable = true;
     authKeyFile = "/run/secrets/tskey-auth";
   };
 
