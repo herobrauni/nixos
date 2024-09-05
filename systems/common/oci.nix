@@ -53,6 +53,7 @@
     ripgrep
     rsync
     dig.dnsutils
+    tailscale
   ];
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -111,7 +112,7 @@
   sops.secrets.tskey-auth = { };
 
   services.tailscale = {
-    enable = true;
+    enable = false;
     authKeyFile = "/run/secrets/tskey-auth";
   };
 
