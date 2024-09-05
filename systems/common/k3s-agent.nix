@@ -5,6 +5,9 @@
 , ...
 }: {
 
+  sops.secrets.k3s-token = { };
+  sops.secrets.k3s-vpn-auth-file = { };
+
   services.k3s = {
     enable = true;
     tokenFile = "/run/secrets/k3s-token";
