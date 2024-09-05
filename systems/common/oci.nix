@@ -106,5 +106,10 @@
     allowReboot = true;
   };
 
+  services.tailscale = {
+    enable = true;
+    authKeyFile = "/run/secrets/tskey-auth";
+  };
+
   system.stateVersion = "24.05"; # Did you read the comment?
 }
