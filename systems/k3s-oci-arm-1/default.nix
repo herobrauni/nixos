@@ -5,7 +5,7 @@
 , pkgs
 , ...
 }: {
-  networking.hostName = "k3s-oci-arm-3"; # Define your hostname.
+  networking.hostName = "k3s-oci-arm-1"; # Define your hostname.
 
   imports =
     [
