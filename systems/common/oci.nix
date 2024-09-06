@@ -114,6 +114,7 @@
   services.tailscale = {
     enable = true;
     authKeyFile = "/run/secrets/tskey-auth";
+    useRoutingFeatures = "both";
     extraSetFlags = [
       "--advertise-exit-node"
     ];
