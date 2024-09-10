@@ -6,5 +6,6 @@
     kubernetes-helm
     lens
     pv-migrate
+    kompose
   ];
 }
