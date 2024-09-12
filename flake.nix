@@ -22,6 +22,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix.url = "github:Mic92/sops-nix";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +33,7 @@
     , nixpkgs
     , home-manager
     , systems
+    , lix-module
     , ...
     } @ inputs:
     let
@@ -56,6 +61,7 @@
         envy = nixpkgs.lib.nixosSystem {
           modules = [
             ./systems/envy
+            lix-module.nixosModules.default
           ];
           specialArgs = {
             inherit inputs outputs;

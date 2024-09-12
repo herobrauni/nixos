@@ -99,6 +99,7 @@
     flake = "github:herobrauni/nixos";
     flags = [
       "--update-input"
+      "--no-write-lock-file"
       "nixpkgs"
       "-L" # print build logs
     ];
