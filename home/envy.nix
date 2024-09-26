@@ -18,8 +18,8 @@
     ./apps/nix-index.nix
   ];
   home.packages = with pkgs; [
-    shipwright
-    _2ship2harkinian
+    # shipwright
+    # _2ship2harkinian
     ferdium
     vlc
     rbw
