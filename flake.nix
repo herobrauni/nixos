@@ -67,6 +67,16 @@
             inherit inputs outputs;
           };
         };
+        # desk
+        desk = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./systems/desk
+            lix-module.nixosModules.default
+          ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
         # k3s-oci-arm
         k3s-oci-arm-2 = nixpkgs.lib.nixosSystem {
           modules = [
@@ -94,6 +104,17 @@
         "brauni@envy" = lib.homeManagerConfiguration {
           modules = [
             ./home/envy.nix
+            ./home/home.nix
+          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
+        # desk
+        "brauni@desk" = lib.homeManagerConfiguration {
+          modules = [
+            ./home/desk.nix
             ./home/home.nix
           ];
           pkgs = pkgsFor.x86_64-linux;
