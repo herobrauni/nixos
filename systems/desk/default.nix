@@ -24,20 +24,34 @@
   # Bootloader
   boot = {
     loader = {
-      systemd-boot.enable = lib.mkForce false;
+      systemd-boot =
+        {
+          enable = lib.mkForce false;
+          # extraEntries = {
+          #   "windows.conf" = ''
+          #     title Windows
+          #     efi /efi/memtest86/memtest.efi
+          #     sort-key z_memtest
+          #   '';
+          # };
+        };
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
     lanzaboote = {
-      enable = false;
+      enable = true;
       pkiBundle = "/etc/secureboot";
     };
     initrd.systemd.enable = true;
-    plymouth.enable = true;
-    kernelParams = [ "quiet" ];
-    plymouth.theme = "proxzima";
-    plymouth.themePackages = [ pkgs.plymouth-proxzima-theme ];
+    #    plymouth.enable = true;
+    #    kernelParams = [ 
+    #      "initcall_blacklist=simpledrm_platform_driver_init" 
+    #      "nvidia-drm.fbdev=1" 
+    #       "nvidia.NVreg_OpenRmEnableUnsupportedGpus=1"
+    #    ];
+    #    plymouth.theme = "proxzima";
+    #    plymouth.themePackages = [ pkgs.plymouth-proxzima-theme ];
   };
   systemd.sleep.extraConfig = "HibernateMode=shutdown";
 
@@ -70,10 +84,11 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome .enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  #  services.xserver.desktopManager.gnome .enable = true;
+  services.desktopManager.plasma6.enable = true;
   services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  #  services.displayManager.cosmic-greeter.enable = true;
   hardware.pulseaudio.enable = false;
   hardware.bluetooth.enable = true;
   services.pipewire.enable = true;
@@ -123,6 +138,7 @@
     pulseaudio
     cifs-utils
     dig.dnsutils
+    sbctl
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?

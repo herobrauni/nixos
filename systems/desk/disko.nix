@@ -7,7 +7,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/nvme0n1p2";
+        device = "/dev/sdc";
         content = {
           type = "gpt";
           partitions = {

@@ -25,7 +25,10 @@
     rbw
     # freerdp
     freerdp3
-    # remmina
+    remmina
+    notes
+    wineWowPackages.stable
+    lutris
   ];
 
   programs.starship.settings = {
