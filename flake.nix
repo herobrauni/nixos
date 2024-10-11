@@ -122,6 +122,17 @@
             inherit inputs outputs;
           };
         };
+        # cachy
+        "brauni@cachy" = lib.homeManagerConfiguration {
+          modules = [
+            ./home/cachy.nix
+            ./home/home.nix
+          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
       };
     };
 }

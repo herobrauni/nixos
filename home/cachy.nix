@@ -12,7 +12,7 @@
   imports = [
     ./apps/firefox.nix
 #    ./apps/alacritty.nix
-#    ./apps/zsh.nix
+    ./apps/zsh.nix
 #    ./apps/font.nix
 #    ./apps/kube.nix
     ./apps/nix-index.nix
@@ -23,12 +23,8 @@
     ferdium
     vlc
     rbw
-    # freerdp
-    freerdp3
     remmina
     notes
-    wineWowPackages.stable
-    lutris
   ];
 
   programs.starship.settings = {
@@ -52,7 +48,7 @@
 
   dconf.settings."org/gnome/desktop/wm/preferences".button-layout = "minimize,maximize,close";
 
-  services.nextcloud-client.enable = true;
+#  services.nextcloud-client.enable = true;
 
   programs = {
     git = {
@@ -60,8 +56,8 @@
       userName = "brauni@envy";
       userEmail = "braunnicolaj@gmail.com";
     };
-    vscode = {
-      enable = true;
-    };
+#    vscode = {
+#      enable = true;
+#    };
   };
 }
