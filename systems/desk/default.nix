@@ -88,6 +88,14 @@
   #  services.xserver.desktopManager.gnome .enable = true;
   services.desktopManager.plasma6.enable = true;
   services.desktopManager.cosmic.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-cosmic
+    ];
+    xdgOpenUsePortal = true;
+  };
   #  services.displayManager.cosmic-greeter.enable = true;
   hardware.pulseaudio.enable = false;
   hardware.bluetooth.enable = true;
@@ -139,6 +147,8 @@
     cifs-utils
     dig.dnsutils
     sbctl
+    cosmic-screenshot
+    cosmic-bg
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
