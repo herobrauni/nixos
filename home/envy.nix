@@ -26,6 +26,7 @@
     # freerdp
     freerdp3
     # remmina
+    rnote
   ];
 
   programs.starship.settings = {
