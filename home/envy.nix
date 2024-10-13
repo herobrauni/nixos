@@ -27,7 +27,6 @@
     freerdp3
     # remmina
     rnote
-    speedtest-cli
   ];
 
   programs.starship.settings = {
