@@ -104,7 +104,7 @@
         "brauni@envy" = lib.homeManagerConfiguration {
           modules = [
             ./home/envy.nix
-            ./home/home.nix
+#            ./home/home.nix
           ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = {
