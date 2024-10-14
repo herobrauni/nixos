@@ -10,12 +10,11 @@
 {
   # You can import other home-manager modules here
   imports = [
-    ./home.nix
-    ./apps/firefox.nix
-    ./apps/alacritty.nix
-    ./apps/zsh.nix
-    ./apps/font.nix
-    ./apps/kube.nix
+#    ./apps/firefox.nix
+#    ./apps/alacritty.nix
+#    ./apps/zsh.nix
+#    ./apps/font.nix
+#    ./apps/kube.nix
     ./apps/nix-index.nix
   ];
   home.packages = with pkgs; [
@@ -24,10 +23,8 @@
     ferdium
     vlc
     rbw
-    # freerdp
-    freerdp3
-    # remmina
-    rnote
+    remmina
+#    notes
   ];
 
   programs.starship.settings = {
@@ -51,7 +48,7 @@
 
   dconf.settings."org/gnome/desktop/wm/preferences".button-layout = "minimize,maximize,close";
 
-  services.nextcloud-client.enable = true;
+#  services.nextcloud-client.enable = true;
 
   programs = {
     git = {
@@ -59,8 +56,8 @@
       userName = "brauni@envy";
       userEmail = "braunnicolaj@gmail.com";
     };
-    vscode = {
-      enable = true;
-    };
+#    vscode = {
+#      enable = true;
+#    };
   };
 }

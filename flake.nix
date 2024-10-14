@@ -133,6 +133,16 @@
             inherit inputs outputs;
           };
         };
+        # cachy
+        "brauni@bazzite" = lib.homeManagerConfiguration {
+          modules = [
+            ./home/bazzite.nix
+          ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
       };
     };
 }
