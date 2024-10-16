@@ -12,7 +12,7 @@
   imports = [
 #    ./apps/firefox.nix
 #    ./apps/alacritty.nix
-#    ./apps/zsh.nix
+    ./apps/zsh.nix
 #    ./apps/font.nix
 #    ./apps/kube.nix
     ./apps/nix-index.nix

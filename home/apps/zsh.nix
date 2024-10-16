@@ -3,8 +3,12 @@
     enable = true;
     enableZshIntegration = true;
   };
-  programs.starship.settings = {
-    battery = {
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+          battery = {
       display = [
         {
           style = "bold red";
@@ -20,12 +24,7 @@
         }
       ];
     };
-  };
 
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {
       add_newline = false;
       directory = {
         truncation_length = 5;
