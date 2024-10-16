@@ -20,39 +20,21 @@
   home.packages = with pkgs; [
     # shipwright
     # _2ship2harkinian
-    ferdium
-    vlc
+    # ferdium
+    # vlc
     rbw
     # freerdp
-    freerdp3
-    remmina
-    notes
-    wineWowPackages.stable
-    lutris
+    # freerdp3
+    # remmina
+    # notes
+    # wineWowPackages.stable
+    # lutris
   ];
 
-  programs.starship.settings = {
-    battery = {
-      display = [
-        {
-          style = "bold red";
-          threshold = 10;
-        }
-        {
-          style = "bold yellow";
-          threshold = 30;
-        }
-        {
-          style = "bold green";
-          threshold = 100;
-        }
-      ];
-    };
-  };
 
-  dconf.settings."org/gnome/desktop/wm/preferences".button-layout = "minimize,maximize,close";
+  # dconf.settings."org/gnome/desktop/wm/preferences".button-layout = "minimize,maximize,close";
 
-  services.nextcloud-client.enable = true;
+  # services.nextcloud-client.enable = true;
 
   programs = {
     git = {

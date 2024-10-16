@@ -3,6 +3,25 @@
     enable = true;
     enableZshIntegration = true;
   };
+  programs.starship.settings = {
+    battery = {
+      display = [
+        {
+          style = "bold red";
+          threshold = 10;
+        }
+        {
+          style = "bold yellow";
+          threshold = 30;
+        }
+        {
+          style = "bold green";
+          threshold = 100;
+        }
+      ];
+    };
+  };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;

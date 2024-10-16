@@ -25,18 +25,18 @@
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
     comma # Install and run programs by sticking a , before them
-    distrobox # Nice escape hatch, integrates docker images with my environment
+    # distrobox # Nice escape hatch, integrates docker images with my environment
 
-    bc # Calculator
-    bottom # System viewer
-    ncdu # TUI disk usage
-    eza # Better ls
-    ripgrep # Better grep
-    fd # Better find
-    httpie # Better curl
-    diffsitter # Better diff
-    jq # JSON pretty printer and manipulator
-    timer # To help with my ADHD paralysis
+    # bc # Calculator
+    # bottom # System viewer
+    # ncdu # TUI disk usage
+    # eza # Better ls
+    # ripgrep # Better grep
+    # fd # Better find
+    # httpie # Better curl
+    # diffsitter # Better diff
+    # jq # JSON pretty printer and manipulator
+    # timer # To help with my ADHD paralysis
 
     nixd # Nix LSP
     alejandra # Nix formatter
@@ -45,13 +45,10 @@
     nix-diff # Differ, more detailed
     nix-output-monitor
     nh # Nice wrapper for NixOS and HM
-
     ltex-ls # Spell checking LSP
-
-    telegram-desktop
   ];
   # Nicely reload system units when changing configs
-#  systemd.user.startServices = "sd-switch";
+  # systemd.user.startServices = "sd-switch";
 
   home.stateVersion = "24.05";
 }
