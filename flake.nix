@@ -104,7 +104,7 @@
         "brauni@envy" = lib.homeManagerConfiguration {
           modules = [
             ./home/envy.nix
-#            ./home/home.nix
+            ./home/home.nix
           ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = {
@@ -127,16 +127,6 @@
           modules = [
             ./home/cachy.nix
             ./home/home.nix
-          ];
-          pkgs = pkgsFor.x86_64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-        };
-        # cachy
-        "brauni@bazzite" = lib.homeManagerConfiguration {
-          modules = [
-            ./home/bazzite.nix
           ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = {

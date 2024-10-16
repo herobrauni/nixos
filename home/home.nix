@@ -9,7 +9,7 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    ./bazzite.nix
+#    ./bazzite.nix
   ];
 
   nixpkgs = {

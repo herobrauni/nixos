@@ -10,7 +10,6 @@
 {
   # You can import other home-manager modules here
   imports = [
-    ./home.nix
     ./apps/firefox.nix
     ./apps/alacritty.nix
     ./apps/zsh.nix
