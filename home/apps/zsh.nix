@@ -8,22 +8,22 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-          battery = {
-      display = [
-        {
-          style = "bold red";
-          threshold = 10;
-        }
-        {
-          style = "bold yellow";
-          threshold = 30;
-        }
-        {
-          style = "bold green";
-          threshold = 100;
-        }
-      ];
-    };
+      battery = {
+        display = [
+          {
+            style = "bold red";
+            threshold = 10;
+          }
+          {
+            style = "bold yellow";
+            threshold = 30;
+          }
+          {
+            style = "bold green";
+            threshold = 100;
+          }
+        ];
+      };
 
       add_newline = false;
       directory = {
@@ -79,8 +79,8 @@
     shellAliases = {
       f = "fuck"; # in case zsh plugin's #1 suggestion won't do
       sound = ''pactl set-card-profile alsa_card.pci-0000_04_00.6 HiFi\ \(Headphones,\ Mic1,\ Mic2\);pactl set-card-profile alsa_card.pci-0000_04_00.6 HiFi\ \(Mic1,\ Mic2,\ Speaker\)'';
-      headphones = ''pactl set-card-profile alsa_card.pci-0000_04_00.6 HiFi\ \(Headphones,\ Mic1,\ Mic2\)'';
-      speakers = ''pactl set-card-profile alsa_card.pci-0000_04_00.6 HiFi\ \(Mic1,\ Mic2,\ Speaker\)'';
+      # headphones = ''pactl set-card-profile alsa_card.pci-0000_04_00.6 HiFi\ \(Headphones,\ Mic1,\ Mic2\)'';
+      # speakers = ''pactl set-card-profile alsa_card.pci-0000_04_00.6 HiFi\ \(Mic1,\ Mic2,\ Speaker\)'';
       rdp_docker = "source /home/brauni/.scripts/windows_pwd && podman unshare --rootless-netns wlfreerdp /v:127.0.0.1 /dynamic-resolution /u:brauni /p:$PASSWORD";
     };
 

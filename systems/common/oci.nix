@@ -1,12 +1,12 @@
-{ lib
-, inputs
-, outputs
-, pkgs
-, ...
+{
+  lib,
+  inputs,
+  outputs,
+  pkgs,
+  ...
 }: {
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  fonts.fontconfig.enable = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+  # fonts.fontconfig.enable = true;
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -70,6 +70,7 @@
     "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINz7Y1oRX+SURSXOoNv5se/hrpi6VvLHK0T3zqz+q5kqAAAABHNzaDo="
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMqCCBIJ2ntASqsNfAt0aKXf7usA1kmJCHKOKldQk9Tx"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJmpZL3J2RqRK7ynIgowaZBKzI+EiuCGmwB6l0AxLk1v"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFfL/A140RdlJ1LQQR/lwtPwf0MAn5haqDdXGKWsW8sa"
   ];
   services.openssh = {
     enable = true;
@@ -79,10 +80,10 @@
     };
   };
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "virtio_scsi" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = ["xhci_pci" "virtio_scsi"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = [];
+  boot.extraModulePackages = [];
   boot.tmp.useTmpfs = false;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -91,8 +92,6 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp0s6.useDHCP = lib.mkDefault true;
-
-  nixpkgs.hostPlatform = lib.mkForce "aarch64-linux";
 
   system.autoUpgrade = {
     enable = true;
@@ -110,7 +109,7 @@
 
   sops.defaultSopsFile = ../../secrets.yaml;
   # This will automatically import SSH keys as age keys
-  sops.secrets.tskey-auth = { };
+  sops.secrets.tskey-auth = {};
 
   services.tailscale = {
     enable = true;

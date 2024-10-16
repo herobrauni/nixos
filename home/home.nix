@@ -1,15 +1,16 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
 }: {
   # You can import other home-manager modules here
   imports = [
-#    ./bazzite.nix
+    #    ./bazzite.nix
   ];
 
   nixpkgs = {
@@ -40,6 +41,7 @@
 
     nixd # Nix LSP
     alejandra # Nix formatter
+    nixpkgs-fmt
     nixfmt-rfc-style
     nvd # Differ
     nix-diff # Differ, more detailed
