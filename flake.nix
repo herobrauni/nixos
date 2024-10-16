@@ -112,7 +112,7 @@
           };
         };
         # desk
-        "brauni@desk" = lib.homeManagerConfiguration {
+        "brauni@bazzite" = lib.homeManagerConfiguration {
           modules = [
             ./home/desk.nix
             ./home/home.nix
