@@ -68,7 +68,6 @@
     "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICvklcYlHcJVJzEAmkevC9eZ/rjCN7d1jhDHMBbVSmkqAAAABHNzaDo="
     "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIJUzimGYl+VtbaQVuGkVRwxRBMQEJDsmD5g+YeHx2s9bAAAABHNzaDo="
     "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAINz7Y1oRX+SURSXOoNv5se/hrpi6VvLHK0T3zqz+q5kqAAAABHNzaDo="
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMqCCBIJ2ntASqsNfAt0aKXf7usA1kmJCHKOKldQk9Tx"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJmpZL3J2RqRK7ynIgowaZBKzI+EiuCGmwB6l0AxLk1v"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFfL/A140RdlJ1LQQR/lwtPwf0MAn5haqDdXGKWsW8sa"
   ];
@@ -97,9 +96,6 @@
     enable = true;
     flake = "github:herobrauni/nixos";
     flags = [
-      "--update-input"
-      "nixpkgs"
-      "--no-write-lock-file"
       "-L" # print build logs
     ];
     dates = "02:00";

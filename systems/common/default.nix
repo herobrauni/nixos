@@ -1,12 +1,11 @@
-{ pkgs
-, config
-, lib
-, ...
-}:
-let
-  ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-in
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+in {
   environment.systemPackages = with pkgs; [
     dialog
     # libnotify
@@ -23,6 +22,8 @@ in
     dig.dnsutils
     age
     sops
+    zsh
+    fish
   ];
 
   users.mutableUsers = false;
@@ -44,6 +45,6 @@ in
     ];
 
     initialHashedPassword = "$y$j9T$d7EVWIrLInhGgEObbWa0A1$jomM5R056rhtJOOBH5vxC6GRnPMdqCb23ZKNWvqv1L9";
-    packages = [ pkgs.home-manager ];
+    packages = [pkgs.home-manager];
   };
 }
