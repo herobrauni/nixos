@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: {
-  networking.hostName = "k3s-oci-arm-2"; # Define your hostname.
+  networking.hostName = "oci-small-1"; # Define your hostname.
   nixpkgs.hostPlatform = lib.mkForce "x86_64-linux";
 
   imports = [
