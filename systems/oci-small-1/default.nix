@@ -14,7 +14,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     # ../common/oci.nix
-    # ../common/default.nix
+    ../common/default.nix
     # ../common/sops.nix
   ];
   boot.tmp.cleanOnBoot = true;
