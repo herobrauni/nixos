@@ -65,6 +65,7 @@
     };
     oh-my-zsh = {
       enable = true;
+      theme = "agnoster";
       # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
       plugins = [
         "git"

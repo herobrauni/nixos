@@ -36,7 +36,6 @@
   # services.nextcloud-client.enable = true;
 
   programs = {
-    wezterm.enable = true;
     git = {
       enable = true;
       userName = "brauni@desk";

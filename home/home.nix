@@ -15,7 +15,10 @@
 
   nixpkgs = {
     # Configure your nixpkgs instance
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
   };
 
   home = {
