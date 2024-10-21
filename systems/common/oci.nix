@@ -11,7 +11,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/etc/nixos";
+    flake = "github:herobrauni/nixos";
   };
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -90,6 +90,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  networking.enableIPv6 = false;
   # networking.interfaces.enp0s6.useDHCP = lib.mkDefault true;
 
   system.autoUpgrade = {

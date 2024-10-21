@@ -29,7 +29,7 @@ in {
   users.mutableUsers = false;
   users.users.brauni = {
     isNormalUser = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     ignoreShellProgramCheck = true;
     extraGroups = ifTheyExist [
       "audio"
