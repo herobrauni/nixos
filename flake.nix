@@ -94,7 +94,7 @@
       };
       oci-small-2 = nixpkgs.lib.nixosSystem {
         modules = [
-          ./systems/oci-small-1
+          ./systems/oci-small-2
         ];
         specialArgs = {
           inherit inputs outputs;
