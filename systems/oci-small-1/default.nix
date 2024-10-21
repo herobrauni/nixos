@@ -13,9 +13,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    # ../common/oci.nix
+    ../common/oci.nix
     ../common/default.nix
-    # ../common/sops.nix
+    ../common/sops.nix
   ];
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = false;
