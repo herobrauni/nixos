@@ -11,7 +11,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "github:herobrauni/nixos";
+    flake = "/etc/nixos";
   };
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
