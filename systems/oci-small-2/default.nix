@@ -18,7 +18,7 @@
     ../common/sops.nix
   ];
   boot.tmp.cleanOnBoot = true;
-  zramSwap.enable = true;
+  zramSwap.enable = false;
   services.openssh.enable = true;
   users.users.root.openssh.authorizedKeys.keys = [''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFfL/A140RdlJ1LQQR/lwtPwf0MAn5haqDdXGKWsW8sa brauni@desk''];
 }
