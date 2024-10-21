@@ -1,9 +1,9 @@
 keys:
-  - &brauni age1yubikey1qv0vz78yk0exywqccv577zz3k3jqazk5rl7jfx2gd5sct88ydm3w6jws6v2
+  - &brauni_desk age1wgkwm0l33qxclrfkgd7fsvw0zz4lw74xsqqrrkrka83nudwrwdcqqul9mz
   - &server_oci-small-1 age1ft8h3h8ms87mre4q6fm60mud8gtjkmykgd5duek66wasem5paess4k924h
 creation_rules:
   - path_regex: secrets.(yaml|json|env|ini)$
     key_groups:
       - age:
-          - *brauni
+          - *brauni_desk
           - *server_oci-small-1

@@ -23,6 +23,7 @@
     # ferdium
     # vlc
     rbw
+    kitty
     # freerdp
     # freerdp3
     # remmina
