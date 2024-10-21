@@ -117,6 +117,7 @@
     extraSetFlags = [
       "--advertise-exit-node"
       "--ssh"
+      "--accept-dns=false"
     ];
   };
 
